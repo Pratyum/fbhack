@@ -57,6 +57,12 @@
             android:label="@string/app_name">
         </activity>
 
+        <receiver android:name=".CustomUI.NotificationButton" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.fbhack.notifAction"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

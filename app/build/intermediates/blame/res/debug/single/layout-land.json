@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/pratyumjagannath/fbhack_final/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_video.xml",
-        "source": "/Users/pratyumjagannath/fbhack_final/app/src/main/res/layout-land/fragment_camera2_video.xml"
+        "merged": "C:\\Users\\Grayson\\AndroidStudioProjects\\fbhack\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_camera2_video.xml",
+        "source": "C:\\Users\\Grayson\\AndroidStudioProjects\\fbhack\\app\\src\\main\\res\\layout-land\\fragment_camera2_video.xml"
+    },
+    {
+        "merged": "C:\\Users\\pratyumjagannath\\fbhack_final\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_camera2_video.xml",
+        "source": "C:\\Users\\pratyumjagannath\\fbhack_final\\app\\src\\main\\res\\layout-land\\fragment_camera2_video.xml"
     }
 ]

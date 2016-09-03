@@ -15,5 +15,9 @@ public class NotificationButton extends BroadcastReceiver {
         //send to server
         int notificationId = intent.getIntExtra("notificationId", 0);
         Log.d("Intent", "Canceled" + notificationId);
+
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(notificationId);
+
     }
 }

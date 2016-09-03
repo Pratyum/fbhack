@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/pratyumjagannath/fbhack_final/app/build/intermediates/res/merged/debug/values-si/values-si.xml",
+        "outputFile": "C:\\Users\\Grayson\\AndroidStudioProjects\\fbhack\\app\\build\\intermediates\\res\\merged\\debug\\values-si\\values-si.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 330
                 },
                 "from": {
-                    "file": "/Users/pratyumjagannath/fbhack_final/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/res/values-si/values.xml",
+                    "file": "C:\\Users\\Grayson\\AndroidStudioProjects\\fbhack\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\9.4.0\\res\\values-si\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 331,
+                        "endColumn": 229,
+                        "endOffset": 556
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\pratyumjagannath\\fbhack_final\\app\\build\\intermediates\\res\\merged\\debug\\values-si\\values-si.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 229,
+                    "endOffset": 330
+                },
+                "from": {
+                    "file": "C:\\Users\\pratyumjagannath\\fbhack_final\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\9.4.0\\res\\values-si\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
