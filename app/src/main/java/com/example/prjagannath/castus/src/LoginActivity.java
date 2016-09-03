@@ -19,6 +19,7 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.Arrays;
 
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 //                loginButton.setReadPermissions(Arrays.asList("user_videos"));
+                Log.d("Token", FirebaseInstanceId.getInstance().getToken());
             }
         });
 
