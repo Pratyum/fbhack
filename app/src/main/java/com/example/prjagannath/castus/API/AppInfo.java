@@ -16,7 +16,7 @@ import java.util.GregorianCalendar;
 public class AppInfo {
     private long Interval;
     private static String appVersionName;
-    private static String BaseURL;
+    private static String BaseURL = "http://castus.herokuapp.com/";
     private boolean isAccessAllow = true;
     private static volatile AppInfo appInfo = null;
 

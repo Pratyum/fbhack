@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "390441365662",
+    "firebase_url": "https://castus-5d435.firebaseio.com",
+    "project_id": "castus-5d435",
+    "storage_bucket": "castus-5d435.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390441365662:android:c6de1f2214106e5f",
+        "android_client_info": {
+          "package_name": "com.cast.us"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390441365662-9023ha7u9qr3rkgrn6ovirfhrohljq6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVAk4fv7HFlppWyKsgfAnD49s0D4M8qjY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390441365662:android:5d0225021f470617",
+        "android_client_info": {
+          "package_name": "com.example.prjagannath.castus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390441365662-9023ha7u9qr3rkgrn6ovirfhrohljq6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVAk4fv7HFlppWyKsgfAnD49s0D4M8qjY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

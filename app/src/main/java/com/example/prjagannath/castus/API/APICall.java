@@ -8,14 +8,13 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.example.prjagannath.castus.CustomEnum.API;
-import com.example.prjagannath.castus.CustomUI.ConfirmDialog;
 import com.example.prjagannath.castus.Core;
+import com.example.prjagannath.castus.CustomEnum.API;
 import com.example.prjagannath.castus.CustomEnum.DialogType;
-import com.example.prjagannath.castus.CustomExceptions.IllegalRequestException;
-import com.example.prjagannath.castus.src.LoginActivity;
-import com.example.prjagannath.castus.SharedPreference;
 import com.example.prjagannath.castus.CustomEnum.Token;
+import com.example.prjagannath.castus.CustomUI.ConfirmDialog;
+import com.example.prjagannath.castus.SharedPreference;
+import com.example.prjagannath.castus.src.LoginActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +40,7 @@ public class APICall {
     private final String SEPARATOR = "<@>";
     private Activity activity;
     private Context context;
+    private static final String BaseURL = "http://castus.herokuapp.com/";
 
     public APICall(Activity activity) {
         activity = activity;
@@ -87,67 +87,27 @@ public class APICall {
         return new JSONArray();
     }
 
-    public String request(API action, int api_id, JSONObject object_to_send) {
+    public String request(API action, String api_id, JSONObject object_to_send) {
         return request(action, api_id, (String)null, object_to_send);
     }
 
-    public String request(API action, int api_id, String target) {
+    public String request(API action, String api_id, String target) {
         return request(action, api_id, target, (JSONObject)null);
     }
 
-    public String request(API action, int api_id, String target, JSONObject object_to_send) {
+    public String request(API action, String api_id, String target, JSONObject object_to_send) {
         String inputLine = "";
-        if(!Core.getAppInfo().isAccessAllow()) {
-            return inputLine;
-        } else {
-            String url = getFinalUrl(api_id, target);
+
+            String url = BaseURL + api_id;
 
             try {
                 URL e = new URL(url);
                 HttpURLConnection connection = (HttpURLConnection)e.openConnection();
                 connection.setRequestMethod(action.toString());
                 connection.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-                connection.setReadTimeout(getInt(5000));
-                connection.setConnectTimeout(getInt(5000));
+                connection.setReadTimeout(5000);
+                connection.setConnectTimeout(5000);
                 String responseCode;
-                    if(activity == null) {
-                        logDebug("NULL ACTIVITY");
-                        responseCode = SharedPreference.getToken(context, Token.AIM);
-                    } else {
-                        logDebug(activity.getLocalClassName());
-                        responseCode = SharedPreference.getToken(activity, Token.AIM);
-                        JSONObject reader = null;
-
-                        try {
-                            reader = new JSONObject(responseCode);
-                        } catch (JSONException var14) {
-                            var14.printStackTrace();
-                        }
-
-                        if (reader == null) {
-                            logDebug("Null JSON!");
-                        } else {
-                            String token_value = null;
-
-                            try {
-                                token_value = reader.getString("token");
-                            } catch (JSONException var13) {
-                                var13.printStackTrace();
-                            }
-
-                            if (token_value == null) {
-                                logDebug("Found a null token!");
-                            } else {
-                                if (token_value.length() == 0) {
-                                    throw new IllegalRequestException(url);
-                                }
-
-                                connection.setRequestProperty("AimPayAuthorization", "Bearer " + token_value);
-                                logDebug(token_value);
-                                logDebug("Headers" + connection.getRequestProperties().toString());
-                            }
-                        }
-                    }
 
                 if(action != API.GET && action != API.DELETE) {
                     responseCode = object_to_send == null?"":object_to_send.toString();
@@ -190,7 +150,7 @@ public class APICall {
 
             logError("inputLine \n" + inputLine);
             return inputLine;
-        }
+
     }
 
     public String Call(API action, int api_id, String parameters) {
@@ -236,7 +196,7 @@ public class APICall {
     }
 
     String getTAG() {
-        return activity == null?context.getClass().toString():activity.getClass().toString();
+        return "Your Mom";
     }
 
     private String getFinalUrl(int api, String target) {
@@ -322,8 +282,5 @@ public class APICall {
         return activity == null?context.getString(msgId, args):activity.getString(msgId, args);
     }
 
-    private int getInt(int intId) {
-        return activity == null?context.getResources().getInteger(intId):activity.getResources().getInteger(intId);
-    }
 
 }
