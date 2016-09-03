@@ -296,10 +296,9 @@ public class Camera2VideoFragment extends Fragment
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
         mButtonVideo = (Button) view.findViewById(R.id.video);
         mButtonFront = (Button) view.findViewById(R.id.front);
-        mButtonVideo.setOnClickListener(this);
-        mButtonFront.setOnClickListener(this);
-
-        view.findViewById(R.id.info).setOnClickListener(this);
+//        mButtonVideo.setOnClickListener(this);
+//        mButtonFront.setOnClickListener(this);
+//        view.findViewById(R.id.info).setOnClickListener(this);
         mrtmpMuxer = new RTMPMuxer();
         //TODO RTMP link
         String rtmpLink = "rtmp://ossrs.net/1wr/12345";

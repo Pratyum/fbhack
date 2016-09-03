@@ -2,5 +2,9 @@
     {
         "merged": "/Users/pratyumjagannath/fbhack_final/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png",
         "source": "/Users/pratyumjagannath/fbhack_final/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/sohamghosh/src/fbhack/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png",
+        "source": "/Users/sohamghosh/src/fbhack/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     }
 ]

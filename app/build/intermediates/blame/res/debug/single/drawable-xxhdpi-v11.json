@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/sohamghosh/src/fbhack/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v11/ic_accept.png",
+        "source": "/Users/sohamghosh/src/fbhack/app/src/main/res/drawable-xxhdpi-v11/ic_accept.png"
+    },
+    {
+        "merged": "/Users/sohamghosh/src/fbhack/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v11/ic_reject.png",
+        "source": "/Users/sohamghosh/src/fbhack/app/src/main/res/drawable-xxhdpi-v11/ic_reject.png"
+    }
+]

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/sohamghosh/src/fbhack/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_video.xml",
+        "source": "/Users/sohamghosh/src/fbhack/app/src/main/res/layout-land/fragment_camera2_video.xml"
+    },
+    {
         "merged": "/Users/pratyumjagannath/fbhack_final/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_video.xml",
         "source": "/Users/pratyumjagannath/fbhack_final/app/src/main/res/layout-land/fragment_camera2_video.xml"
     }
