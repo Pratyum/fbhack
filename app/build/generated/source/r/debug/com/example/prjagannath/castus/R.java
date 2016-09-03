@@ -29,6 +29,7 @@ public final class R {
     }
     public static final class array {
         public static final int CountryCodes=0x7f0b0000;
+        public static final int names=0x7f0b0001;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -2908,17 +2909,19 @@ containing a value of this type.
         public static final int design_fab_background=0x7f02006a;
         public static final int design_ic_visibility=0x7f02006b;
         public static final int design_snackbar_background=0x7f02006c;
-        public static final int messenger_bubble_large_blue=0x7f02006d;
-        public static final int messenger_bubble_large_white=0x7f02006e;
-        public static final int messenger_bubble_small_blue=0x7f02006f;
-        public static final int messenger_bubble_small_white=0x7f020070;
-        public static final int messenger_button_blue_bg_round=0x7f020071;
-        public static final int messenger_button_blue_bg_selector=0x7f020072;
-        public static final int messenger_button_send_round_shadow=0x7f020073;
-        public static final int messenger_button_white_bg_round=0x7f020074;
-        public static final int messenger_button_white_bg_selector=0x7f020075;
-        public static final int navigation_empty_icon=0x7f020076;
-        public static final int notification_template_icon_bg=0x7f020077;
+        public static final int ic_accept=0x7f02006d;
+        public static final int ic_reject=0x7f02006e;
+        public static final int messenger_bubble_large_blue=0x7f02006f;
+        public static final int messenger_bubble_large_white=0x7f020070;
+        public static final int messenger_bubble_small_blue=0x7f020071;
+        public static final int messenger_bubble_small_white=0x7f020072;
+        public static final int messenger_button_blue_bg_round=0x7f020073;
+        public static final int messenger_button_blue_bg_selector=0x7f020074;
+        public static final int messenger_button_send_round_shadow=0x7f020075;
+        public static final int messenger_button_white_bg_round=0x7f020076;
+        public static final int messenger_button_white_bg_selector=0x7f020077;
+        public static final int navigation_empty_icon=0x7f020078;
+        public static final int notification_template_icon_bg=0x7f020079;
     }
     public static final class id {
         public static final int action0=0x7f0d0097;
@@ -3240,12 +3243,13 @@ containing a value of this type.
         public static final int messenger_send_button_text=0x7f060025;
         public static final int permission_rationale=0x7f06004b;
         public static final int permission_request=0x7f06004c;
-        public static final int prompt_email=0x7f06004d;
-        public static final int prompt_password=0x7f06004e;
-        public static final int record=0x7f06004f;
+        public static final int pick_color=0x7f06004d;
+        public static final int prompt_email=0x7f06004e;
+        public static final int prompt_password=0x7f06004f;
+        public static final int record=0x7f060050;
         public static final int search_menu_title=0x7f060026;
         public static final int status_bar_notification_info_overflow=0x7f060027;
-        public static final int stop=0x7f060050;
+        public static final int stop=0x7f060051;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08008d;

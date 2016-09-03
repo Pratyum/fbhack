@@ -3,11 +3,14 @@ package com.example.prjagannath.castus.src;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.example.prjagannath.castus.API.APICall;
+import com.example.prjagannath.castus.CustomEnum.API;
 import com.example.prjagannath.castus.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -34,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private LoginButton loginButton;
     private Intent mIntent;
+    private String query="";
+    private String stream_url , secure_stream_url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +65,15 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
+            public void onSuccess(final LoginResult loginResult) {
+
                 mIntent = new Intent(LoginActivity.this, PostLoginActivity.class);
                 mIntent.putExtra("userID", loginResult.getAccessToken().getUserId());
                 mIntent.putExtra("token", loginResult.getAccessToken().getToken());
                 Log.d("Facebook ID",loginResult.getAccessToken().getUserId());
+                query= "fb_id="+loginResult.getAccessToken().getUserId()+"&name="+"pratyum"+"&device_id="+FirebaseInstanceId.getInstance().getToken();
+
+                new HealthCheckTask().execute(query);
                 Log.d("Facebook Token",loginResult.getAccessToken().getToken());
                 final String[] friendList = new String[1];
                 GraphRequestAsyncTask graphRequestAsyncTask = new GraphRequest(
@@ -74,14 +84,17 @@ public class LoginActivity extends AppCompatActivity {
                         new GraphRequest.Callback() {
                             public void onCompleted(GraphResponse response) {
                                 try {
-                                    friendList[0] = response.toString();
-                                    Log.d("Your Mom!",friendList[0]);
+                                    Log.d("Your Mom!",response.getRawResponse());
+                                    mIntent.putExtra("friends",response.getRawResponse());
+                                    mIntent.putExtra("fb_id",loginResult.getAccessToken().getUserId());
+                                    mIntent.putExtra("access_token", loginResult.getAccessToken().getToken());
+                                    startActivity(mIntent);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             }
                         }).executeAsync();
-                mIntent.putExtra("friends", friendList[0]);
+
 //                new GraphRequest(
 //                        AccessToken.getCurrentAccessToken(),
 //                        "/{friend-list-id}",
@@ -94,7 +107,6 @@ public class LoginActivity extends AppCompatActivity {
 //                        }
 //                ).executeAsync();
 
-                startActivity(mIntent);
 //                info.setText(
 //                        "User ID: "
 //                                + loginResult.getAccessToken().getUserId()
@@ -130,6 +142,34 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    class HealthCheckTask extends AsyncTask<String, Void, String> {
+
+        APICall apiCall = new APICall(getBaseContext());
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (apiCall.isRequestSuccess(s, true)) {
+                Log.d(getClass().getSimpleName(), "onPostExecute: ");
+                apiCall.logDebug("String is " + s);
+
+
+
+
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            for (int i=0;i<params.length;++i){
+              Log.d("resigster ",params[i]+" + "+i);
+            };
+            Log.d("register " , query);
+            return apiCall.request(API.GET,"register?"+query, null, null);
+        }
     }
 
 

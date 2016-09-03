@@ -65,9 +65,7 @@ public class APICall {
 
     public JSONObject convertToJsonObject(String respond) {
         try {
-            if(noError(respond)) {
                 return new JSONObject(respond);
-            }
         } catch (JSONException var3) {
             var3.printStackTrace();
         }

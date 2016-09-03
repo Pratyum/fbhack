@@ -60,6 +60,8 @@ import android.widget.Toast;
 import com.example.prjagannath.castus.CustomUI.AutoFitTextureView;
 import com.example.prjagannath.castus.R;
 
+import net.butterflytv.rtmp_client.RTMPMuxer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -227,6 +229,8 @@ public class Camera2VideoFragment extends Fragment
     private String mNextVideoAbsolutePath;
     private CaptureRequest.Builder mPreviewBuilder;
     private Surface mRecorderSurface;
+    private RTMPMuxer mrtmpMuxer;
+
 
     public static Camera2VideoFragment newInstance() {
         return new Camera2VideoFragment();
@@ -296,6 +300,12 @@ public class Camera2VideoFragment extends Fragment
         mButtonFront.setOnClickListener(this);
 
         view.findViewById(R.id.info).setOnClickListener(this);
+        mrtmpMuxer = new RTMPMuxer();
+        //TODO RTMP link
+        String rtmpLink = "rtmp://ossrs.net/1wr/12345";
+        mrtmpMuxer.open(rtmpLink,386,640);
+        Log.d(TAG,"All ready at port "+rtmpLink);
+
     }
 
     @Override
@@ -342,8 +352,13 @@ public class Camera2VideoFragment extends Fragment
                 Activity activity = getActivity();
                 if (null != activity) {
                     new AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
-                            .setPositiveButton(android.R.string.ok, null)
+                            .setItems(R.array.names, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // The 'which' argument contains the index position
+                                    // of the selected item
+                                }
+                            })
+                            .setTitle(R.string.pick_color)
                             .show();
                 }
                 break;
@@ -655,6 +670,8 @@ public class Camera2VideoFragment extends Fragment
             surfaces.add(mRecorderSurface);
             mPreviewBuilder.addTarget(mRecorderSurface);
 
+
+
             // Start a capture session
             // Once the session starts, we can update the UI and start recording
             mCameraDevice.createCaptureSession(surfaces, new CameraCaptureSession.StateCallback() {
@@ -706,7 +723,6 @@ public class Camera2VideoFragment extends Fragment
         // Stop recording
         mMediaRecorder.stop();
         mMediaRecorder.reset();
-
         Activity activity = getActivity();
         if (activity != null) {
             Toast.makeText(activity, "Video saved: " + mNextVideoAbsolutePath,
@@ -716,6 +732,9 @@ public class Camera2VideoFragment extends Fragment
         mNextVideoAbsolutePath = null;
         startPreview();
     }
+
+
+
 
     /**
      * Compares two {@code Size}s based on their areas.

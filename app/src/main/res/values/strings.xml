@@ -34,4 +34,5 @@
         ]]>
     </string>
     <string name="healthCheck">"healthCheck/"</string>
+    <string name="pick_color">Choose Friend</string>
 </resources>

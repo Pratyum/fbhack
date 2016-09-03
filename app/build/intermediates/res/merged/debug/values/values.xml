@@ -208,6 +208,11 @@
         <item>260,ZM</item>
         <item>263,ZW</item>
     </string-array>
+    <string-array name="names">
+        <item>Pratyum</item>
+        <item>Soham</item>
+        <item>Divyansh</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -617,6 +622,7 @@
         completions."
     </string>
     <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="pick_color">Choose Friend</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="record">Record</string>
