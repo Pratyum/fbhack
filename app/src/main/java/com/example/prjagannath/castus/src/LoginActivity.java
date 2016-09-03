@@ -43,15 +43,17 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         loginButton = (LoginButton)findViewById(R.id.login_button);
-        //loginButton.setPublishPermissions(Arrays.asList("publish_actions"));
         loginButton.setReadPermissions(Arrays.asList("user_videos", "user_friends"));
+        loginButton.clearPermissions();
+        loginButton.setPublishPermissions(Arrays.asList("publish_actions"));
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 //                loginButton.setReadPermissions(Arrays.asList("user_videos"));
                 Log.d("Token", FirebaseInstanceId.getInstance().getToken());
-            }
+
+         }
         });
 
 
@@ -61,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                 mIntent = new Intent(LoginActivity.this, PostLoginActivity.class);
                 mIntent.putExtra("userID", loginResult.getAccessToken().getUserId());
                 mIntent.putExtra("token", loginResult.getAccessToken().getToken());
+                Log.d("Facebook ID",loginResult.getAccessToken().getUserId());
+                Log.d("Facebook Token",loginResult.getAccessToken().getToken());
                 final String[] friendList = new String[1];
                 GraphRequestAsyncTask graphRequestAsyncTask = new GraphRequest(
                         loginResult.getAccessToken(),

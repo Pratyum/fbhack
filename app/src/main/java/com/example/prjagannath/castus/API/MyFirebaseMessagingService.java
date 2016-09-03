@@ -78,7 +78,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .addAction(R.drawable.com_facebook_close, "Close", pendingIntent)
+                .addAction(R.drawable.com_facebook_send_button_icon, "Accept", pendingIntent);
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
